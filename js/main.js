@@ -59,12 +59,19 @@ $(document).ready(function(){
       console.log("Cognome: " + studenti[i]["cognome"]);
   }
 
+  // PUNTO 3
 
+  // 1. Chiede all’utente attraverso 3 prompt: nome, cognome e età.
+  var nomeUtente = prompt("Inserisci il nome dello studente");
+  var cognomeUtente = prompt("Inserisci il cognome dello studente");
+  var etaUtente = String(parseInt(prompt("Inserisci l'età dello studente")));
 
-
-
-
-
+  // 2. Aggiunge un nuovo oggetto studente inserendo nell’ordine: nome, cognome e età.
+  studente = {"nome": nomeUtente, "cognome": cognomeUtente, "eta": etaUtente}
+  studenti.push(studente);
+  console.log("PUNTO 3 ********************");
+  console.log(studenti);
+  console.log("STUDENTE AGGIUNTO: " + studenti[(studenti.length - 1)].nome, studenti[(studenti.length - 1)].cognome + " / Età: " + studenti[(studenti.length - 1)].eta + " anni");
 
 
 
