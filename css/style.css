@@ -4,6 +4,53 @@
   margin: 0;
 }
 
+
+/* MIX */
+
+.col_red {
+  color: red;
+}
+
+.col_black {
+  color: #000;
+}
+
+h1 {
+  margin: 20px 20px 5px 20px;
+}
+
+h2 {
+  margin: 0px 20px 10px 20px;
+}
+
+
+.classe li {
+  margin: 20px;
+}
+
 body {
-  background-color: lightgrey;
+  background-color: #efefef;
+  margin: 20px;
+}
+
+.nuovo_studente {
+  display: flex;
+  margin: 20px;
+}
+
+.nuovo_studente input {
+  text-align: center;
+  margin-right: 10px;
+  height: 35px;
+  width: 150px;
+  color: red;
+  font-weight: bold;
+}
+
+.nuovo_studente input::placeholder {
+  text-align: center;
+}
+.nuovo_studente button {
+  padding: 0px 10px 0px 10px;
+  font-weight: bold;
 }

@@ -5,10 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js" integrity="sha512-zT3zHcFYbQwjHdKjCu6OMmETx8fJA9S7E6W7kBeFxultf75OPTYUJigEKX58qgyQMi1m1EgenfjMXlRZG8BXaw==" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <title>JS oggetti studenti</title>
 </head>
 <body>
+
+  <div class="elenco">
+    <h1>BOOLEAN CAREERS - Classe #117</h1>
+    <h2>anno 2120</h1>
+    <form class="nuovo_studente" action="index.html" method="post">
+      <input id="nome-new" type="text" name="nome" value="" placeholder="inserisci nome">
+      <input id="cognome-new" type="text" name="cognome" value="" placeholder="inserisci cognome">
+      <input id="eta-new" type="text" name="eta" value="" placeholder="inserisci età">
+      <button id="aggiungi_studente" type="button" name="button">AGGIUNGI STUDENTE</button>
+    </form>
+    <ul class="classe">
+    </ul>
+  </div>
+
+
+  <script id="studente-template" type="text/x-handlebars-template">
+    <li class="studente">
+      <h3>Studente: {{nome}} {{cognome}}</h1>
+      <p>Età: {{eta}}</p>
+    </li>
+  </script>
 
   <script src="js/main.js" charset="utf-8"></script>
 </body>

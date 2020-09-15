@@ -52,26 +52,54 @@ $(document).ready(function(){
     }
   ];
 
+
   // 2. Ciclare su tutti gli studenti e stampare per ognuno nome e cognome
   console.log("PUNTO 2 ********************");
   for (var i = 0; i < studenti.length; i++) {
       console.log("Nome: " + studenti[i]["nome"]);
       console.log("Cognome: " + studenti[i]["cognome"]);
+      // HANDLEBARS
+      // selettore per puntare il template che si vuole utilizzare
+      var source = $("#studente-template").html();
+      // compila il template e lo appoggia come oggetto nella variabile template
+      var template = Handlebars.compile(source);
+      // prepara la variabile per manipolare il contenuto del template
+      var context = {"nome": studenti[i]["nome"], "cognome": studenti[i]["cognome"], "eta": studenti[i]["eta"]};
+      // modifica il template con le modifiche contenute in context e lo appoggia nell'oggetto html
+      var html = template(context);
+      // appende l'oggetto template manipolato al div .classe nel documento HTML
+      $(".classe").append(html);
   }
+
 
   // PUNTO 3
 
-  // 1. Chiede all’utente attraverso 3 prompt: nome, cognome e età.
-  var nomeUtente = prompt("Inserisci il nome dello studente");
-  var cognomeUtente = prompt("Inserisci il cognome dello studente");
-  var etaUtente = String(parseInt(prompt("Inserisci l'età dello studente")));
-
-  // 2. Aggiunge un nuovo oggetto studente inserendo nell’ordine: nome, cognome e età.
-  studente = {"nome": nomeUtente, "cognome": cognomeUtente, "eta": etaUtente}
-  studenti.push(studente);
-  console.log("PUNTO 3 ********************");
-  console.log(studenti);
-  console.log("STUDENTE AGGIUNTO: " + studenti[(studenti.length - 1)].nome, studenti[(studenti.length - 1)].cognome + " / Età: " + studenti[(studenti.length - 1)].eta + " anni");
+  // CLICK sul pulsante Aggiungi Studente
+  // Aggiunge un nuovo studente con i dati inseriti negli input
+  $("#aggiungi_studente").click (
+    function() {
+      // recupera i valori inseriti negli input
+      var nomeUtente = $("#nome-new").val();
+      var cognomeUtente = $("#cognome-new").val();
+      var etaUtente = $("#eta-new").val();
+      // aggiunge un nuovo oggetto studente inserendo nell’ordine: nome, cognome e età.
+      studente = {"nome": nomeUtente, "cognome": cognomeUtente, "eta": etaUtente}
+      studenti.push(studente);
+      // selettore per puntare il template che si vuole utilizzare
+      var source = $("#studente-template").html();
+      // compila il template e lo appoggia come oggetto nella variabile template
+      var template = Handlebars.compile(source);
+      // prepara la variabile per manipolare il contenuto del template
+      var context = {"nome": studenti[(studenti.length - 1)]["nome"], "cognome": studenti[(studenti.length - 1)]["cognome"], "eta": studenti[(studenti.length - 1)]["eta"]};
+      // modifica il template con le modifiche contenute in context e lo appoggia nell'oggetto html
+      var html = template(context);
+      // appende l'oggetto template manipolato al div .classe nel documento HTML
+      $(".classe").append(html);
+      // ripulisce i campi input nuovo studente
+      $("#nome-new").val("");
+      $("#cognome-new").val("");
+      $("#eta-new").val("");
+    });
 
 
 
